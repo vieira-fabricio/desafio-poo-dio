@@ -21,10 +21,46 @@ public class Main {
 		mentoriaJava.setDescricao("Descrição Mentoria Java");
 		mentoriaJava.setData(LocalDate.now());
 		
-		System.out.println(curso1);
-		System.out.println(curso2);
-		System.out.println(mentoriaJava);
+		Conteudo conteudo = new Curso();
 		
+		
+		/*
+		   System.out.println(curso1);
+		   System.out.println(curso2);
+		   System.out.println(mentoriaJava); 
+		 */
+		
+		Bootcamp bootcamp = new Bootcamp();
+		bootcamp.setNome("Bootcamp Java Developer");
+		bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+		bootcamp.getConteudos().add(curso1);
+		bootcamp.getConteudos().add(curso2);
+		bootcamp.getConteudos().add(mentoriaJava);
+		
+		Dev devCarlos = new Dev();
+		devCarlos.setNome("Carlos");
+		devCarlos.inscreverBootcamp(bootcamp);
+		System.out.println("Conteúdos inscritos de Carlos " + devCarlos.getConteudosInscritos());
+		devCarlos.progradir();
+		devCarlos.progradir();
+		devCarlos.progradir();
+		System.out.println("--");
+		System.out.println("Conteúdos inscritos de Carlos " + devCarlos.getConteudosInscritos());
+		System.out.println("Conteúdos concluídos de Carlos " + devCarlos.getConteudosConcluidos());
+		System.out.println("XP: " + devCarlos.calcularTotalXp());
+		
+		System.out.println("------------------------");
+		
+		Dev devMaria = new Dev();
+		devMaria.setNome("Maria");
+		devMaria.inscreverBootcamp(bootcamp);
+		System.out.println("Conteúdos inscritos de Maria " + devMaria.getConteudosInscritos());
+		devMaria.progradir();
+		devMaria.progradir();
+		System.out.println("--");
+		System.out.println("Conteúdos inscritos de Maria " + devMaria.getConteudosInscritos());
+		System.out.println("Conteúdos concluídos de Maria " + devMaria.getConteudosConcluidos());
+		System.out.println("XP: " + devMaria.calcularTotalXp());
 	}
 
 }
